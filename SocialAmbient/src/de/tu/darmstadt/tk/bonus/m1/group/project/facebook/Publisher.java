@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.tu.darmstadt.tk.bonus.m1.group.project;
+package de.tu.darmstadt.tk.bonus.m1.group.project.facebook;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;

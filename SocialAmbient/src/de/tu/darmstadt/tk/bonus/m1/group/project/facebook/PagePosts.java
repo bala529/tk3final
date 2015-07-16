@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.tu.darmstadt.tk.bonus.m1.group.project;
+package de.tu.darmstadt.tk.bonus.m1.group.project.facebook;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
