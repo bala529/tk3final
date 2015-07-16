@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.tu.darmstadt.tk.bonus.m1.group.project.Spotify;
+package de.tu.darmstadt.tk.bonus.m1.group.project.spotify;
 
 import java.awt.Desktop;
 import java.io.IOException;
