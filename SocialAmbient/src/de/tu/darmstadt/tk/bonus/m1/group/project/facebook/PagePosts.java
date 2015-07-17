@@ -24,6 +24,7 @@ import facebook4j.auth.AccessToken;
 public class PagePosts {
 
 	
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) throws FacebookException, InterruptedException, IOException, URISyntaxException {
 		
 		//Accessing facebook using API
@@ -33,8 +34,8 @@ public class PagePosts {
 		facebook.setOAuthAccessToken(at);
 		
 		String message = "";
-		String artist = "coldplay";
-		String track = "clocks";
+		//String artist = "coldplay";
+		//String track = "clocks";
 		while(true) {
 			
 			 // Set limit to 1 feeds.
@@ -54,15 +55,19 @@ public class PagePosts {
 		            		message = post.getMessage();
 			            	System.out.println(message);
 			            	
+			            	MessageRefactorer refator = new MessageRefactorer();
+			            	String[] publishArticles = refator.findSubscriber(message);
+			            	//System.out.println();
 			            	//publish here
-			            	//Publisher publisher = new Publisher();
-			            	//publisher.publish(message);
+			            	boolean spotifyTrue = message.contains(Constants.artistFinder);
+			            	Publisher publisher = new Publisher();
+			            	publisher.publish(publishArticles,spotifyTrue);
 			            	//play on spotify
-			            	SpotifyCall.playTrackOnSpotify(artist, track);
+			            	//SpotifyCall.playTrackOnSpotify(artist, track);
 		            	}		            	
 		            }		   	           
 		        } 					        
-			Thread.sleep(2*1000);
+			Thread.sleep(10*1000);
 		}		
 	}
 }

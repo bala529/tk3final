@@ -10,13 +10,15 @@ package de.tu.darmstadt.tk.bonus.m1.group.project.facebook;
 public class Constants {
 
 	public static final String REGEX = ":";
+		
+	public static final String artistFinder = "Homeradioartist";
+	public static final String trackFinder = "Homeradiotrack";
+	public static final String localPlayer = "Homeradiolocal";
 	
-	public static final String local = "local";
-	public static final String Local = "Local";
-	public static final String LOCAL = "LOCAL";
-	
-	public static final String SPOT = "SPOT";
-	public static final String Spot = "Spot";
-	public static final String spot = "spot";
+	public static final String local = "/home/local";
+	public static final String spotify = "/home/spotify";
+	public static final String broker = "tcp://test.mosquitto.org:1883";
+	public static final String clientId = "JavaSample";
+	public static final int qos = 2;
 	
 }

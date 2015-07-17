@@ -15,30 +15,48 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
  */
 public class Publisher {
 	
-	static String topic        = "/home/colors";
-    //static String content      = "love";
-    static int qos             = 2;
-    static String broker       = "tcp://test.mosquitto.org:1883";
-    static String clientId     = "JavaSample";
+	
+
+    
+
     static MemoryPersistence persistence = new MemoryPersistence();
     
-    public static boolean publish(String content) {
+    public static boolean publish(String[] content,boolean spotifyTrue) {
     	boolean success = false;
     	try {
     		
-            MqttClient sampleClient = new MqttClient(broker, clientId, persistence);
+            MqttClient sampleClient = new MqttClient(Constants.broker, Constants.clientId, persistence);
             MqttConnectOptions connOpts = new MqttConnectOptions();
             connOpts.setCleanSession(true);
-            System.out.println("Connecting to broker: "+broker);
+            System.out.println("Connecting to broker: "+Constants.broker);
             sampleClient.connect(connOpts);
             System.out.println("Connected");
-            System.out.println("Publishing message: "+content);
-            MqttMessage message = new MqttMessage(content.getBytes());
-            message.setQos(qos);
-           // sampleClient.publish(topic, message);
-            sampleClient.publish(topic, message);
-            success = true;
-            System.out.println("Message published");
+            //System.out.println("Publishing message: "+content);
+            
+            String artist = getStringForPublish(content[0]);
+            String track = getStringForPublish(content[1]);
+            String song = getStringForPublish(content[2]);
+            
+            String spotifyMsg = artist+"--"+track;
+            MqttMessage spotifyMessage = new MqttMessage(spotifyMsg.getBytes());
+            spotifyMessage.setQos(Constants.qos);                       
+            
+            MqttMessage songMessage = new MqttMessage(song.getBytes());
+            songMessage.setQos(Constants.qos);
+           
+            if(!spotifyTrue) {
+            	sampleClient.publish(Constants.local, songMessage);
+            	success = true;
+                System.out.println("Local Message published :: "+song);
+            }            	
+            else  {
+            	
+            	sampleClient.publish(Constants.spotify, spotifyMessage);
+            	success = true;
+                System.out.println("Spotify Message published :: "+spotifyMsg);
+            }    
+            
+            
             //sampleClient.disconnect();
             //System.out.println("Disconnected");
             //System.exit(0);
@@ -52,4 +70,14 @@ public class Publisher {
         }
 		return success;
     }
+
+	private static String getStringForPublish(String string) {
+		// TODO Auto-generated method stub
+		System.out.println("print "+string);
+		if(null!= string && !"".equals(string)){
+			return string;
+		} else {
+			return "";
+		}
+	}
 }
