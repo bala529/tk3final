@@ -53,13 +53,8 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="SubscribeSpotify">
-        <java classname="de.tu.darmstadt.tk.bonus.m1.group.project.spotify.SubscribeSpotify" failonerror="true" fork="yes">
-            <classpath refid="SocialAmbientFacebook.classpath"/>
-        </java>
-    </target>
-    <target name="SubscribeLocal">
-        <java classname="de.tu.darmstadt.tk.bonus.m1.group.project.localmusic.SubscribeLocal" failonerror="true" fork="yes">
+    <target name="facebook">
+        <java classname="de.tu.darmstadt.tk.bonus.m1.group.project.facebook.FacebookCall" failonerror="true" fork="yes">
             <classpath refid="SocialAmbientFacebook.classpath"/>
         </java>
     </target>
