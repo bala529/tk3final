@@ -1,5 +1,12 @@
 package de.tu.darmstadt.tk.bonus.m1.group.project.facebook;
 
+/**
+ * @author dinesh
+ * @author balu
+ * @author gopi
+ *
+ * Performs the task of separation of song name and artist name.
+ */
 public class MessageRefactorer {
 	
 	public String[] findSubscriber(String message) {

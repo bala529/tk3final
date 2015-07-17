@@ -11,13 +11,12 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 /**
  * @author dinesh
+ * @author balu
+ * @author gopi
  *
+ * Spliting based on local or spotify 
  */
 public class Publisher {
-	
-	
-
-    
 
     static MemoryPersistence persistence = new MemoryPersistence();
     

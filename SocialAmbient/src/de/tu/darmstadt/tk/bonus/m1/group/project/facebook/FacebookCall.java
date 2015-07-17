@@ -19,7 +19,10 @@ import facebook4j.auth.AccessToken;
 
 /**
  * @author dinesh
+ * @author balu
+ * @author gopi
  *
+ *Gets connection from Facebook graph api via an access token. This token mentioned below is valid till Sep 17th
  */
 public class FacebookCall {
 
@@ -53,11 +56,12 @@ public class FacebookCall {
 			            	//publish here
 			            	boolean spotifyTrue = message.contains(Constants.artistFinder);
 			            	Publisher publisher = new Publisher();
+			            	//MQtt publish
 			            	publisher.publish(publishArticles,spotifyTrue);
 		            	}		            	
 		            }		   	           
 		        } 					        
-			Thread.sleep(10*1000);
+			Thread.sleep(10*1000); // making the thread sleep for a while to repeat the code every period of time.
 		}		
 	}
 }

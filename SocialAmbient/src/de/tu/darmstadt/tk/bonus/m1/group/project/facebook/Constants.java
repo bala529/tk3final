@@ -5,7 +5,10 @@ package de.tu.darmstadt.tk.bonus.m1.group.project.facebook;
 
 /**
  * @author dinesh
+ * @author balu
+ * @author gopi
  *
+ *This class maintains all the constants used in the application.
  */
 public class Constants {
 
