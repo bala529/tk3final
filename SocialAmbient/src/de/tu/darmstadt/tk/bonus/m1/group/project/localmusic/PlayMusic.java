@@ -31,7 +31,7 @@ public class PlayMusic {
 		 "sleep"
 		} ;
 	
-	public  void playsong1(String mood1, int playCounter)
+	public  void playTrack(String mood1, int playCounter)
 	{						
 		if(mood1.toLowerCase().contains(moodNames[0]))
 		{

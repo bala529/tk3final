@@ -5,31 +5,33 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+import de.tu.darmstadt.tk.bonus.m1.group.project.facebook.Constants;
+
 /**
  * 
- * @author manishaluthra
+ * @author dinesh
  *
  */
-public class ReceiveMood implements MqttCallback {
+public class SubscribeLocal implements MqttCallback {
 	MqttClient client;
 	MqttMessage message;
 	int playCounter = 0;
-	PlayMusic play=new PlayMusic();
+	PlayMusic musicPlayer =new PlayMusic();
 	
 	public static void main(String[] args) {
 
-		new ReceiveMood().doDemo();
+		new SubscribeLocal().activateSubscriptionForLocal();
 	    
 	}
 
-	public void doDemo() {
+	public void activateSubscriptionForLocal() {
 	    try {
 	        client = new MqttClient("tcp://test.mosquitto.org:1883", "Sending");
 	        client.connect();
 	        if(client.isConnected())
 	        	System.out.println("client connected");
 	        client.setCallback(this);
-	        client.subscribe("/home/colors");
+	        client.subscribe(Constants.local);
 
 	    } catch (MqttException e) {
 	        e.printStackTrace();
@@ -49,12 +51,12 @@ public class ReceiveMood implements MqttCallback {
 	public void messageArrived(String arg0, MqttMessage arg1) throws Exception {
 		// TODO Auto-generated method stub
 		//System.out.println(message);   
-		System.out.println("some message received");
-		String str = new String(arg1.toString());
-		System.out.println(str);
+		System.out.println("local message received");
+		String track = new String(arg1.toString());
+		System.out.println(track);
 		
 		playCounter++;		
-		play.playsong1(str, playCounter);				
+		musicPlayer.playTrack(track, playCounter);				
 		
 	}
 				
