@@ -37,7 +37,7 @@ public class SubscribeSpotify implements MqttCallback {
 	        if(client.isConnected())
 	        	System.out.println("client connected");
 	        client.setCallback(this);
-	        client.subscribe(Constants.local);
+	        client.subscribe(Constants.spotify);
 
 	    } catch (MqttException e) {
 	        e.printStackTrace();
