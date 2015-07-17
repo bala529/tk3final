@@ -10,8 +10,6 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import de.tu.darmstadt.tk.bonus.m1.group.project.facebook.Constants;
-import de.tu.darmstadt.tk.bonus.m1.group.project.localmusic.PlayMusic;
-import de.tu.darmstadt.tk.bonus.m1.group.project.localmusic.SubscribeLocal;
 
 /**
  * @author dinesh
@@ -21,8 +19,6 @@ public class SubscribeSpotify implements MqttCallback {
 	
 	MqttClient client;
 	MqttMessage message;
-	int playCounter = 0;
-	PlayMusic musicPlayer =new PlayMusic();
 	
 	public static void main(String[] args) {
 
