@@ -26,7 +26,7 @@ public class SubscribeSpotify implements MqttCallback {
 	
 	public static void main(String[] args) {
 
-		new SubscribeLocal().activateSubscriptionForLocal();
+		new SubscribeSpotify().activateSubscriptionForSpotify();
 	    
 	}
 	
