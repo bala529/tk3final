@@ -21,7 +21,7 @@ import facebook4j.auth.AccessToken;
  * @author dinesh
  *
  */
-public class PagePosts {
+public class FacebookCall {
 
 	
 	@SuppressWarnings("static-access")
