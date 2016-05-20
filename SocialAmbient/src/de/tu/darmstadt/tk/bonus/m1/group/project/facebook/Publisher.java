@@ -37,6 +37,8 @@ public class Publisher {
             String song = getStringForPublish(content[2]);
             
             String spotifyMsg = artist+"--"+track;
+            System.out.printf("Message to Spotify:%s",spotifyMsg);
+            
             MqttMessage spotifyMessage = new MqttMessage(spotifyMsg.getBytes());
             spotifyMessage.setQos(Constants.qos);                       
             

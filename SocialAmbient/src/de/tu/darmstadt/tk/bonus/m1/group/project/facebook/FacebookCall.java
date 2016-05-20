@@ -39,7 +39,7 @@ public class FacebookCall {
 		String message = "";
 		while(true) {			
 			 // Set limit to 1 feeds.
-		    ResponseList<Post> feeds = facebook.getFeed("694521957319631",
+		    ResponseList<Post> feeds = facebook.getFeed("1732042247081344",
 		            new Reading().limit(1));
 		        // For 1 feeds...
 		        for (int i = 0; i < feeds.size(); i++) {
@@ -49,7 +49,7 @@ public class FacebookCall {
 		            if(null!=post.getMessage()) {
 		            	if(!post.getMessage().trim().equals(message.trim())) {
 		            		message = post.getMessage();
-			            	System.out.println(message);
+			            	System.out.printf("post read from Facebook:%s",message);
 			            	
 			            	MessageRefactorer refator = new MessageRefactorer();
 			            	String[] publishArticles = refator.findSubscriber(message);
